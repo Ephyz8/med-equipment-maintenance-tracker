@@ -1,5 +1,6 @@
 import { Box, Typography, IconButton, Collapse } from '@mui/material';
 import { Warning, Close } from '@mui/icons-material';
+import React, { useState } from 'react';
 
 const EmergencyAlert = () => {
   const [open, setOpen] = useState(true);
@@ -34,3 +35,5 @@ const EmergencyAlert = () => {
     </Collapse>
   );
 };
+
+export default EmergencyAlert;

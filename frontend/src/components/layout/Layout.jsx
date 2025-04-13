@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, CssBaseline, Toolbar, useMediaQuery, useTheme } from '@mui/material';
 import AppBar from './AppBar/AppBar';
-import Drawer from './Drawer/Drawer';
+import Drawer from './AppBar/Drawer';
 import Footer from './Footer/Footer';
 import EmergencyAlert from './EmergencyAlert'; // Optional component
 

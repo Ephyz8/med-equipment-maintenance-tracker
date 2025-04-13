@@ -5,7 +5,8 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Divider
+  Divider,
+  Toolbar
 } from '@mui/material';
 import {
   Dashboard as DashboardIcon,
@@ -16,18 +17,18 @@ import {
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
+export const menuItems = [
+  { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
+  { text: 'Equipment', icon: <EquipmentIcon />, path: '/equipment' },
+  { text: 'Maintenance', icon: <MaintenanceIcon />, path: '/maintenance' },
+  { text: 'Fault Reports', icon: <FaultsIcon />, path: '/faults' },
+  { text: 'Reports', icon: <ReportsIcon />, path: '/reports' },
+];
+
 const drawerWidth = 240;
 
 const Drawer = ({ open, onClose }) => {
   const navigate = useNavigate();
-
-  const menuItems = [
-    { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
-    { text: 'Equipment', icon: <EquipmentIcon />, path: '/equipment' },
-    { text: 'Maintenance', icon: <MaintenanceIcon />, path: '/maintenance' },
-    { text: 'Fault Reports', icon: <FaultsIcon />, path: '/faults' },
-    { text: 'Reports', icon: <ReportsIcon />, path: '/reports' },
-  ];
 
   return (
     <MuiDrawer
@@ -42,7 +43,7 @@ const Drawer = ({ open, onClose }) => {
         },
       }}
     >
-      <Toolbar /> {/* Spacer for AppBar */}
+      <Toolbar />
       <Divider />
       <List>
         {menuItems.map((item) => (
