@@ -1,0 +1,83 @@
+### Django ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+db.sqlite3
+/media/
+/staticfiles/
+
+# Environment variables
+.env
+.env.prod
+.env.local
+/secrets/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+### PostgreSQL ###
+/postgres_data/
+
+### Node.js/React ###
+# Dependencies
+/node_modules/
+/.pnp
+.pnp.js
+
+# Build files
+/build/
+/dist/
+/.next/
+/out/
+
+# Cache
+.npm
+.eslintcache
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### Python ###
+# Virtual environment
+/venv/
+/ENV/
+.env/
+.env.prod
+.env.local
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+### Docker ###
+# Ignore Docker compose override files
+docker-compose.override.yml
+
+# Ignore Docker build cache
+**/docker-build.log
+**/.dockerignore
+
+### macOS ###
+.DS_Store
+
+### Windows ###
+Thumbs.db
+ehthumbs.db
+Desktop.ini
