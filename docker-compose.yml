@@ -12,3 +12,5 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
+
+# Removed invalid 'repos' section. Ensure pre-commit configuration is in a separate '.pre-commit-config.yaml' file.

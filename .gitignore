@@ -81,3 +81,7 @@ docker-compose.override.yml
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Keep migrations
+!/equipment/migrations/
+!/maintenance/migrations/
