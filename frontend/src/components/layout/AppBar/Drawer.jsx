@@ -17,6 +17,7 @@ import {
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
+// First export the menuItems array
 export const menuItems = [
   { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
   { text: 'Equipment', icon: <EquipmentIcon />, path: '/equipment' },
@@ -27,6 +28,7 @@ export const menuItems = [
 
 const drawerWidth = 240;
 
+// Then export the Drawer component as default
 const Drawer = ({ open, onClose }) => {
   const navigate = useNavigate();
 

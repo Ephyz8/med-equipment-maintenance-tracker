@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, CssBaseline, Toolbar, useMediaQuery, useTheme } from '@mui/material';
+import { Outlet } from 'react-router-dom';
 import AppBar from './AppBar/AppBar';
 import Drawer from './AppBar/Drawer';
 import Footer from './Footer/Footer';
-import EmergencyAlert from './EmergencyAlert'; // Optional component
+import EmergencyAlert from './EmergencyAlert';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [emergencyMode, setEmergencyMode] = useState(false); // Connect to backend status
+  const [emergencyMode, setEmergencyMode] = useState(false); // You may connect this to backend
 
-  // Drawer toggle for mobile
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  // Close drawer when resizing to desktop
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       if (!isMobile && mobileOpen) {
         setMobileOpen(false);
@@ -35,20 +34,16 @@ const Layout = ({ children }) => {
       backgroundColor: theme.palette.background.default
     }}>
       <CssBaseline />
-      
-      {/* Emergency Alert Banner (Top) */}
+
       {emergencyMode && <EmergencyAlert />}
-      
-      {/* AppBar (Fixed at top) */}
+
       <AppBar onDrawerToggle={handleDrawerToggle} />
-      
-      {/* Main Layout Container */}
+
       <Box sx={{ 
         display: 'flex', 
         flexGrow: 1,
-        mt: { xs: 0, sm: 0 } // Adjust if AppBar height changes
+        mt: { xs: 0, sm: 0 }
       }}>
-        {/* Responsive Drawer */}
         <Drawer 
           open={mobileOpen} 
           onClose={handleDrawerToggle} 
@@ -62,14 +57,13 @@ const Layout = ({ children }) => {
             }
           }}
         />
-        
-        {/* Main Content Area */}
+
         <Box
           component="main"
           sx={{
             flexGrow: 1,
             p: 3,
-            width: { sm: `calc(100% - 240px)` }, // Account for drawer
+            width: { sm: `calc(100% - 240px)` },
             transition: theme.transitions.create(['width', 'margin'], {
               easing: theme.transitions.easing.sharp,
               duration: theme.transitions.duration.leavingScreen,
@@ -82,21 +76,19 @@ const Layout = ({ children }) => {
             }),
           }}
         >
-          {/* Spacer for AppBar */}
-          <Toolbar /> 
-          
-          {/* Page Content */}
+          <Toolbar />
+
           <Box sx={{ 
             maxWidth: 1600, 
             mx: 'auto',
-            minHeight: 'calc(100vh - 128px)' // Adjust based on your header/footer height
+            minHeight: 'calc(100vh - 128px)' 
           }}>
-            {children}
+            {/* 🔥 Render nested routes */}
+            <Outlet />
           </Box>
         </Box>
       </Box>
-      
-      {/* Footer */}
+
       <Footer />
     </Box>
   );

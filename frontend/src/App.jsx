@@ -31,6 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<DashboardPage />} />
+            {/* Nested routes for equipment management */}
             <Route path="equipment">
               <Route index element={<EquipmentListPage />} />
               <Route path=":id" element={<EquipmentDetailPage />} />
